@@ -19,21 +19,19 @@ const tweet = async () => {
 
   const fileId = await makeMeme()
   const fileName = `${fileId}.png`
-  console.log(fileName)
 
   const mediaId = await twitterClient.v1.uploadMedia(`./images/${fileName}`)
 
   try {
     const translatedText = await minionResult()
-    await twitterClient.v2.tweet(translatedText, { media_ids: mediaId });
-    console.log('Tweeted, ' + '"' + translatedText + '"')
+    await twitterClient.v2.tweet(translatedText, { media: { media_ids: [mediaId] } });
+    console.log(`Tweeted, "${translatedText}" with image ${fileName}`)
   } catch (e) {
     console.log(e)
   }
 }
 
 tweet();
-
 /*
 const cronTweet = new CronJob("0 6 * * *", async () => {
   tweet();

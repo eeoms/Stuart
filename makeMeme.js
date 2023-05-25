@@ -22,13 +22,10 @@ const randomMemeId = getRandomItem(memeIdArray)
 const randomFileNumber = Math.floor(Math.random() * 9999999);
 
 async function makeMeme() {
-  const jokeResponse = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart')
+  const jokeResponse = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=political&type=twopart')
   const jokeResult = await jokeResponse.text();
 
   var json = JSON.parse(jokeResult);
-
-  console.log(json.setup);
-  console.log(json.delivery);
 
   await imgflip.meme(randomMemeId, {
     captions: [
@@ -37,7 +34,7 @@ async function makeMeme() {
     ],
     path: `images/${randomFileNumber}.png`
   })
-  
+
   return randomFileNumber;
 }
 
