@@ -1,6 +1,6 @@
 //const CronJob = require("cron").CronJob;
-import makeMeme from "./makeMeme.js";
-import minionResult from "./minionResult.js";
+import makeMeme from "./src/makeMeme.js";
+import minionResult from "./src/minionResult.js";
 import { TwitterApi } from "twitter-api-v2";
 
 const client = new TwitterApi({
