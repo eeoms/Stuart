@@ -1,6 +1,6 @@
 # Stuart, the Minion
 
-Stuart is a Twitter bot that posts random Minion memes with text traslated to Minionese.
+Stuart is a Twitter bot that posts random Minion memes with text translated to Minionese.
 
 ## About
 
